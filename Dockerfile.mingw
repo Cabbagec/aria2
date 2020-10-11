@@ -16,7 +16,8 @@ FROM ubuntu:19.04
 MAINTAINER Tatsuhiro Tsujikawa
 
 # Change HOST to x86_64-w64-mingw32 to build 64-bit binary
-ENV HOST i686-w64-mingw32
+# ENV HOST i686-w64-mingw32
+ENV HOST x86_64-w64-mingw32
 
 # It would be better to use nearest ubuntu archive mirror for faster
 # downloads.
@@ -105,7 +106,7 @@ RUN tar xf libssh2-1.9.0.tar.gz && \
         --with-wincng \
         LIBS="-lws2_32" && \
     make install
-ADD https://api.github.com/repos/aria2/aria2/git/refs/heads/master version.json
-RUN git clone https://github.com/aria2/aria2 && \
+ADD https://api.github.com/repos/Cabbagec/aria2/git/refs/heads/master version.json
+RUN git clone https://github.com/Cabbagec/aria2 --depth=1 && \
     cd aria2 && autoreconf -i && ./mingw-config && make && \
     $HOST-strip src/aria2c.exe
