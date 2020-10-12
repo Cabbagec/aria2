@@ -27,7 +27,7 @@ RUN apt-get update && \
     apt-get install -y \
         make binutils autoconf automake autotools-dev libtool \
         pkg-config git curl dpkg-dev gcc-mingw-w64 g++-mingw-w64 \
-        autopoint libcppunit-dev libxml2-dev libgcrypt11-dev lzip
+        autopoint libcppunit-dev libxml2-dev libgcrypt-dev lzip
 
 RUN curl -L -O https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz && \
     curl -L -O https://github.com/libexpat/libexpat/releases/download/R_2_2_7/expat-2.2.7.tar.bz2 && \
