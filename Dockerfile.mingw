@@ -11,9 +11,9 @@
 # $ sudo docker cp $id:/aria2/src/aria2c.exe <dest>
 # $ sudo docker rm -v $id
 
-FROM ubuntu:19.04
+FROM ubuntu:20.04
 
-MAINTAINER Tatsuhiro Tsujikawa
+MAINTAINER Brandon
 
 # Change HOST to x86_64-w64-mingw32 to build 64-bit binary
 # ENV HOST i686-w64-mingw32
