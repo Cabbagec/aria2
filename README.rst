@@ -1,3 +1,23 @@
+aria2 - Enhanced version
+=======================================
+
+Thread retries when connection too slow.
+-----------------------------------------
+
+With option ``--lowest-speed-limit`` and ``--max-tries=0``, such as ``aria2c.exe --lowest-speed-limit=100K --max-tries=0 --split=16 --max-connection-per-server=16 http://...``, any downloading thread whose speed is below 100KB/s will close current connection and retry nonstop. This technique is particularly useful on servers constantly throttling after connections being stable.
+
+Unlimited downloading threads.
+---------------------------------------
+
+Option ``--max-connection-per-server``. Such as ``aria2c.exe --max-connection-per-server=64 --split=64 http://...``, now we have ``64`` running downloading threads, which will greatly boost the progress on most cases. On the original repo, this option is limited to `16` maximum, for obvious concern that too much connections will deplete all resources both on server and client.
+
+Disclaimer
+------------------------------------------
+
+This enhanced version is built only for demonstration & testing. Under NO circumstances should it be used to fulfill unlawful or unethical purposes. Anyone who obtains copy of this enhanced version must be responsible for his/her own behavior.
+
+-----------
+
 aria2 - The ultra fast download utility
 =======================================
 
