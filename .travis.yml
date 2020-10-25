@@ -5,17 +5,17 @@ services:
   - docker
 
 before_install:
-  - apt-get update
+  - sudo apt-get update
   
 install:
-  - apt-get install -y zip
+  - sudo apt-get install -y zip
 
 script:
-  - docker build -t aria2-mingw - < ./Dockerfile.mingw
+  - sudo docker build -t aria2-mingw - < ./Dockerfile.mingw
   
 before_deploy:
-  - chmod +x ./docker-release.sh
-  - export RELEASE_FILE=$(./docker-release.sh)
+  - sudo chmod +x ./docker-release.sh
+  - export RELEASE_FILE=$(sudo ./docker-release.sh)
 
 deploy:
   provider: releases
