@@ -4,15 +4,15 @@ services:
   - docker
 
 before_install:
-  - sudo apt-get update
+  - apt-get update
   
 install:
-  - sudo apt-get install -y zip
+  - apt-get install -y zip
 
 script:
   - docker build -t aria2-mingw - < ./Dockerfile.mingw
   
-after_script:
+before_deploy:
   - chmod +x ./docker-release.sh
   - export RELEASE_FILE=$(./docker-release.sh)
 
@@ -24,6 +24,9 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+
+after_deploy:
+  - rm $RELEASE_FILE
 #dist: trusty
 #language: cpp
 #cache: ccache
